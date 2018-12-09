@@ -1,0 +1,38 @@
+=======================================
+Bypassing email attachment restrictions 
+for Bash,Perl & Python scripts w/base64
+=======================================
+I had to transfer some bash, perl and python scripts to my work via an email recently.
+I've created a .tar.gz  file and sent it to my work email, only to receive a response quickly
+saying that the attachment was blocked as dangerous.
+
+What you can do to get around this? Follow the HOWTO below.
+Just bear in mind that you might break an Enterprise rules and get fired!
+
+::On your home computer::
+=========================
+:~$ base64 rkhunt.64 
+Cm1hc3RlckBob21lOn4kIGdyZXAgdXNyL2Jpbi9sd3AtcmVxdWVzdCAvdmFyL2xpYi9kcGtnL2lu
+Zm8vbGlid3d3LXBlcmwubWQ1c3VtcwpjM2ExZjA0MzM5MTE5ZGI2MjVmMmMzMTNiZTY4NWNjMyAg
+dXNyL2Jpbi9sd3AtcmVxdWVzdAptYXN0ZXJAaG9tZTp+JCAKbWFzdGVyQGhvbWU6fiQgbWQ1c3Vt
+IC91c3IvYmluL2x3cC1yZXF1ZXN0CmMzYTFmMDQzMzkxMTlkYjYyNWYyYzMxM2JlNjg1Y2MzICAv
+dXNyL2Jpbi9sd3AtcmVxdWVzdAoKCg==
+
+Now copy the above code and send it in a cleartext.
+
+::On your work computer::
+=========================
+user@work:~# echo "Cm1hc3RlckBob21lOn4kIGdyZXAgdXNyL2Jpbi9sd3AtcmVxdWVzdCAvdmFyL2xpYi9kcGtnL2lu
+> Zm8vbGlid3d3LXBlcmwubWQ1c3VtcwpjM2ExZjA0MzM5MTE5ZGI2MjVmMmMzMTNiZTY4NWNjMyAg
+> dXNyL2Jpbi9sd3AtcmVxdWVzdAptYXN0ZXJAaG9tZTp+JCAKbWFzdGVyQGhvbWU6fiQgbWQ1c3Vt
+> IC91c3IvYmluL2x3cC1yZXF1ZXN0CmMzYTFmMDQzMzkxMTlkYjYyNWYyYzMxM2JlNjg1Y2MzICAv
+> dXNyL2Jpbi9sd3AtcmVxdWVzdAoKCg==" | base64 -d
+
+master@home:~$ grep usr/bin/lwp-request /var/lib/dpkg/info/libwww-perl.md5sums
+c3a1f04339119db625f2c313be685cc3  usr/bin/lwp-request
+master@home:~$ 
+master@home:~$ md5sum /usr/bin/lwp-request
+c3a1f04339119db625f2c313be685cc3  /usr/bin/lwp-request
+
+user@work:~#
+
