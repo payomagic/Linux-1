@@ -1,6 +1,4 @@
 #!/bin/bash
-# Extract all different extensions with only one command!
-# 2016 / source unknown
 
 function extract {
  if [ -z "$1" ]; then
@@ -37,3 +35,4 @@ function extract {
     done
 fi
 }
+
