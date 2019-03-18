@@ -3,6 +3,17 @@
 # @reboot /usr/sbin/startup-script.sh
 # */1 * * * * /bin/ping -c1 172.21.0.1 #wireguard workaround for clients
 
+# TBD !!!
+# # /etc/crontab: system-wide crontab
+# Unlike any other crontab you don't have to run the `crontab'
+# command to install the new version when you edit this file
+# and files in /etc/cron.d. These files also have username fields,
+# that none of the other crontabs do.
+
+#SHELL=/bin/sh
+#PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+# TBD!!!
+
 /usr/sbin/openvpn --config /etc/openvpn/client.conf --persist-tun --fast-io --up-restart --daemon openvpn-wedos2
 #.#
 /sbin/ip addr replace 31.31.75.17/24 dev eth0
