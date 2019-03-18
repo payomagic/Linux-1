@@ -1,0 +1,17 @@
+#!/bin/bash
+# Oneliners, Tips & Tricks etc. 
+
+# Shifre your script with gpg and passphrase
+echo "eval \"\$(dd if=\$0 bs=1 skip=XX 2>/dev/null|gpg -d 2>/dev/null)\"; exit" > script.secure; sed -i s:XX:$(stat -c%s script.secure): script.secure; gpg -c < reverse-bash-shell.sh >> script.secure; chmod +x script.secure
+
+# Repeat last command with sudo if you forget 
+alias kua='sudo $(history -p \!\!)'
+
+# echo the line of numbers 
+echo {01..10}
+
+# generate line of 6-random numbers
+python -c 'import random; print(random.randint(0,1000000-1))'
+
+# human-readable du 
+du -hsx * | sort -rh
