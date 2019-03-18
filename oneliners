@@ -1,0 +1,42 @@
+# Tips & Tricks
+# Oneliners etc.
+
+#Run a local shell script on a remote server without copying it there
+ssh user@server bash < /path/to/local/script.sh
+
+#Run a never-ending process in the background in a way that you can check on its status anytime 
+screen -d -m -S some_name ping my_router
+
+# Print the first occurence of $any that occurs after $other
+ifconfig | grep ^eth -A5 | grep inet | head -n 1
+
+# Print the occurences of $any that are after $other
+ifconfig | grep ^eth -A5 | grep inet | head
+
+# List du human-readable
+du -hsx * | sort -rh
+
+# Search man and create a PDF
+man -k . | awk '{ print $1 " " $2 }' | dmenu -i -p man | awk '{ print $2 " " $1 }' | tr -d '()' | xargs man -t | ps2pdf - - | zathura -
+
+# Show HTTP Headers
+curl -I <website>
+
+# Random 6-digit number
+python -c 'import random; print(random.randint(0,1000000-1))'
+
+# pretty print system load (1,5,15mins) while loop
+while [ 1 == 1 ]; do  cat /proc/loadavg | awk '{printf "1 minute load: %.2f\n", $(NF-5)}' && cat /proc/loadavg |awk '{printf "5 minute load: %.2f\n", $(NF-3)}' && cat /proc/loadavg |awk '{printf "15 minute load: %.2f\n", $(NF-2)}'; sleep 3; date; done
+
+# Find & Replace string in file(s)
+grep -ril '$SEARCH_PATTERN' src | sed -i 's/$FIND_PATTERN/$REPLACE_PATTERN/g'
+
+# Show all info about running system
+echo /etc/*_ver* /etc/*-rel*; cat /etc/*_ver* /etc/*-rel*
+
+# Get notified when command finishes - append to end
+<command-that-takes-long> ;notify-send done
+
+# show CPU speed on all cores in realtime
+watch grep \"cpu MHz\" /proc/cpuinfo
+
