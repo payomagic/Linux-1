@@ -1,0 +1,15 @@
+#!/bin/bash
+# Search if command exists in your path
+# tbd: shows current path to script and ask if export to env
+#
+
+# Read user's input
+read -p "Check if command exists in PATH : " some_exec
+
+# Script itself
+if ! hash $some_exec 2>/dev/null
+then
+    echo "'$some_exec' was not found in PATH. Use ./command to run the script!" #not.found
+else
+    echo "Allright. Just run it as any other command... " ; echo $PATH | grep $some_exec #found
+fi
