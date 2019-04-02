@@ -16,14 +16,14 @@
 
 /usr/sbin/openvpn --config /etc/openvpn/client.conf --persist-tun --fast-io --up-restart --daemon openvpn-wedos2
 #.#
-/sbin/ip addr replace 31.31.75.17/24 dev eth0
+/sbin/ip addr replace <static> dev eth0
 /sbin/ifconfig eth0 up
 #.#.#.# KNOCKING Opening of ports #.#.#>#
 /usr/sbin/knockd -d -c /home/administrator/knockd.conf
 #.#.#.##.#.#.##.#.#.#
 # IP ROUTE add
-/sbin/ip route replace 78.108.148.253/32 via 31.31.75.1 dev eth0 onlink
-/sbin/ip route replace default via 31.31.75.1 dev eth0 onlink
+/sbin/ip route replace <home> via <dc> dev eth0 onlink
+/sbin/ip route replace default via <dc> dev eth0 onlink
 #.#.#.##.#.#.##.#.#.#
 #.# TAP Interfaces
 #.#.#.##.#.#.##.#.#.#
