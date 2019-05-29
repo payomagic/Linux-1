@@ -113,10 +113,10 @@ alias mac-gen='/home/administrator/mac_generate.sh && echo see the ~/cisco-OUI-M
 #.#
 #.#.#.#.#.#.# SSH-Neighbors aliases #.#.#.#.#.#.#
 #.#.#.#.#.#.#                           #.#.#.#.#.#.#
-alias wedos-pub='ssh -l administrator -p 5622 31.31.73.128'
+alias wedos-pub='ssh -l administrator -p 5622 $wedos-pub'
 alias wedos='ssh -X -l administrator -p 5622 172.16.254.1'
 alias wedos2='ssh -X -l administrator -p 5622 172.16.253.3'
-alias wedos2-pub='ssh -l administrator -p 5622 31.31.75.17'
+alias wedos2-pub='ssh -l administrator -p 5622 $wedos2-pub'
 alias rpidva='ssh -X -l administrator -p 5622 10.11.10.222'
 alias ryzen='ssh -X -l administrator -p 5622 10.11.10.8'
 #.#
