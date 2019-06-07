@@ -1,0 +1,24 @@
+# Useful & basic tools to install & have in every new machine
+build-essential
+apt-file
+htop
+zsh
+vim
+nmap
+curl
+wget
+netcat
+strace
+sysstat
+
+## Other non-less useful, but not everywhere 
+
+gns3-gui
+gns3-server
+
+# add repo
+echo "deb http://ppa.launchpad.net/gns3/ppa/ubuntu bionic main" | sudo tee /etc/apt/sources.list
+echo "deb-src http://ppa.launchpad.net/gns3/ppa/ubuntu bionic main" | sudo tee /etc/apt/sources.list
+echo "deb http://ppa.launchpad.net/graphics-drivers/ppa/ubuntu bionic main" | sudo tee /etc/apt/sources.list
+echo "deb http://archive.ubuntu.com/ubuntu/ xenial-backports main restricted universe multiverse" | sudo tee /etc/apt/sources.list
+echo "deb https://packages.cisofy.com/community/lynis/deb/ stable main" | sudo tee /etc/apt/sources.list.d/cisofy-lynis.list
