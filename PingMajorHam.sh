@@ -1,6 +1,6 @@
 #!/bin/bash
 # H&M Major Outage Country ping
-# 2019 dvorapa
+# 2019 payomagic
 #
 # Ver.: 1.03 
 #
