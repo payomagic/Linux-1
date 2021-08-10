@@ -4,7 +4,7 @@
 #
 HMSTORES=".major/all-sites.txt"
 echo "Major Outage script to verify country for H&M sites"
-echo "Author : vzid dvorapa 2019"
+echo "Author : vzid xxxxx 2019"
 echo
 echo "Verifying if ran in past already ..."
 
